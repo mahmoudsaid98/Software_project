@@ -1,0 +1,7 @@
+rules:
+- id: js-ssti-nunjucks-renderstring
+  languages: [javascript]
+  severity: ERROR
+  message: "Possible Server-Side Template Injection (SSTI)"
+  pattern: |
+    nunjucks.renderString($TEMPLATE)

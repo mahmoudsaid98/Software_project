@@ -1,0 +1,8 @@
+rules:
+- id: js-xss-direct-res-send
+  languages: [javascript]
+  severity: ERROR
+  message: "Possible XSS: direct res.send with user input"
+  pattern: |
+    res.send($DATA)
+

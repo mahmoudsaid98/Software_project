@@ -1,0 +1,7 @@
+rules:
+- id: js-hardcoded-jwt-secret
+  languages: [javascript]
+  severity: ERROR
+  message: "Hardcoded JWT secret detected"
+  pattern: |
+    jwt.verify($TOKEN, "SuperSecret")

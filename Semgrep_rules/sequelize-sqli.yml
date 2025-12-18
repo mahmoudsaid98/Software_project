@@ -1,0 +1,8 @@
+rules:
+- id: js-sequelize-raw-sqli
+  languages: [javascript]
+  severity: ERROR
+  message: "Possible SQL Injection via Sequelize raw query"
+  pattern: |
+    $DB.sequelize.query($SQL, ...)
+

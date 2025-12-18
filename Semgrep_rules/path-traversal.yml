@@ -1,0 +1,22 @@
+rules:
+  - id: semgrep-rules.js-path-traversal
+    languages: [javascript]
+    severity: ERROR
+    message: |
+      Possible Path Traversal: user-controlled input is used in filesystem path.
+      Validate and sanitize input or use allow-listed filenames.
+    metadata:
+      owasp: "A01: Broken Access Control"
+      cwe: "CWE-22"
+    patterns:
+      - pattern-either:
+          - pattern: fs.readFile($PATH, ...)
+          - pattern: fs.readFileSync($PATH, ...)
+          - pattern: fs.writeFile($PATH, ...)
+          - pattern: fs.createReadStream($PATH, ...)
+      - pattern-inside: |
+          $X = req.$SOURCE.$VAR;
+          ...
+      - metavariable-regex:
+          metavariable: $SOURCE
+          regex: "(query|params|body)"
