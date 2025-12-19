@@ -28,19 +28,14 @@ npm install
 npm install nodemon
 Start the development server:
 
-bash
-Copy code
 npm run dev
 The application will be available at:
 
-arduino
-Copy code
 http://localhost:5000
 Running OWASP ZAP
 Start OWASP ZAP:
 
 bash
-Copy code
 zap.sh
 Automated Baseline Scan
 bash
@@ -51,8 +46,6 @@ Performs passive scanning only
 Safe for quick vulnerability discovery
 
 Full Active Scan
-bash
-Copy code
 zap-full-scan.py -t http://localhost:5000
 Performs active attacks
 
@@ -62,21 +55,21 @@ Running Semgrep
 Semgrep with Base Rules
 Run official JavaScript and Node.js security rules:
 
-bash
-Copy code
 semgrep --config p/javascript --config p/nodejs --error
 Semgrep with Custom Rules
 Run all custom rules located in the semgrep-rules directory:
 
-bash
-Copy code
 semgrep --config semgrep-rules/
 Custom rules are used to detect application-specific vulnerabilities such as:
+
+SQLI 
 
 Path Traversal
 
 Hardcoded JWT secrets
 
-Open Redirects
+SSTI
 
 XSS patterns
+
+
